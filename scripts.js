@@ -25,10 +25,10 @@ function playRound(playerSelection, computerSelection) {
     }   else if (player == "scissors" && comp == "paper") {
         result = "You Win ! Scissors beats Paper";
     }   else {
-        result = `You Lose ! ${comp} beats ${player}`;
-    }
+        result = "You Lose ! " + comp[0].toUpperCase() + comp.slice(1).toLowerCase() + " beats " + player[0].toUpperCase() + player.slice(1).toLowerCase();
+    } 
     return result;
-}
+} 
 
 function game() {
     let wins = 0;
@@ -40,10 +40,11 @@ function game() {
 
         let string = playRound(playerSelection, computerSelection);
         console.log(string);
-        
+
         if (string.includes("Win")) {
             wins++;
         }
+
         if (string.includes("Lose")) {
             loss++;
         }
