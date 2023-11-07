@@ -30,8 +30,30 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
+function game() {
+    let wins = 0;
+    let loss = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("Type rock paper or scissors");
+
+        let string = playRound(playerSelection, computerSelection);
+        console.log(string);
+        
+        if (string.includes("Win")) {
+            wins++;
+        }
+        if (string.includes("Lose")) {
+            loss++;
+        }
+    }
+    if (wins > loss) {
+        console.log("You are the winner")
+    } else {
+        console.log("LOSER")
+    }
+}
+
 //Below here is just for testing purposes
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+//const playerSelection = "rock";
